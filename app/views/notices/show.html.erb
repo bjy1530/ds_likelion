@@ -1,0 +1,43 @@
+
+    <br/><br/><br/><br/><br/><br/><br/><br/>
+    <div class="row justify-content-md-center" id="notice_card">
+        <div class="col-6" id="accordion" role="tablist" aria-multiselectable="true">
+          <div class="card">
+            <div class="card-header" role="tab" id="headingOne">
+              <h4 class="mb-0">
+                <label>제목 : <%=@notice.title%></label>
+              </h4>
+            </div>
+
+            <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+              <div class="card-block">
+                <%= @notice.content %>
+              </div>
+            </div>
+
+            <div class="card-header" role="tab" id="headingOne">
+              <h6 class="mb-0">
+                <a data-toggle="collapse" data-parent="#accordion" aria-expanded="true" aria-controls="collapseOne">
+                  마감날짜 : <%=@notice.deadline%>
+                </a>
+              </h6>
+            </div>
+          </div>
+        </div>
+    </div>
+    <center>
+        <% if signed_in?%>
+            <% if current_user.has_role? :admin %>
+                <%=link_to '수정',edit_notice_path(@notice.id) %>
+            <%end%>
+        <%end%>
+
+    <br/>
+    <br/>
+    <br/>
+
+    <button style="color:white;" class="btn btn-danger btn-sm btn-signin">
+      <%=link_to '목록', notices_path, :style => "color:white; text-decoration:none;"%>
+    </button>
+    </center>
+    <br/><br/>
