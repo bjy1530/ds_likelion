@@ -13,6 +13,7 @@ gem 'rails_db'
 gem 'execjs'
 gem 'exec'
 
+gem 'figaro'
 gem 'therubyracer', :platforms => :ruby
 #image uploadgem
 gem 'mini_magick'
